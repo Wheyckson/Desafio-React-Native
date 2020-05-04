@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import api from "./services/api";
+import api from './services/api';
 
 import {
   SafeAreaView,
@@ -27,7 +27,7 @@ export default function App() {
 
     const repositoriesUpdated = repositories.map(repository => {
       if (repository.id === id) {
-        return { ...repository, likes } ; 
+        return { ...repository, likes };
       } else {
         return repository;
       }
@@ -44,10 +44,10 @@ export default function App() {
           keyExtractor={repository => repository.id}
           renderItem={({ item: repository }) => (
             <View style={styles.repositoryContainer}>
-              <Text style={styles.repository}>{repository.tittle}</Text>
+              <Text style={styles.repository}>{repository.title}</Text>
 
               <View style={styles.techsContainer}>
-                {repository.tech.map(tech => (
+                {repository.techs.map(tech => (
                   <Text key={tech} style={styles.tech}>
                     {tech}
                   </Text>
@@ -59,8 +59,8 @@ export default function App() {
                   style={styles.likeText}
                   testID={`repository-likes-${repository.id}`}
                 >
-                  {repository.likes} curtidas
-            </Text>
+                  {repository.likes} curtida{repository.likes > 1 ? 's' : ''}
+                </Text>
               </View>
 
               <TouchableOpacity
