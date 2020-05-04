@@ -31,8 +31,7 @@ export default function App() {
       } else {
         return repository;
       }
-    });
-    
+    });    
     setRepositories(repositoriesUpdated);
   }
 
